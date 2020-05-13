@@ -9,7 +9,7 @@ var slice2 []int = arr[5:10]       //可以简写为 var slice[]int = arr[start:
 var slice3 []int = arr[0:len(arr)] //var slice []int = arr[:]
 var slice4 = arr[:len(arr)-1]      //去掉切片的最后一个元素
 
-func main() {
+func mains1() {
 
 	s := make([]int, 0, 1)
 	//fmt.Printf(s)
@@ -93,4 +93,59 @@ func main1() {
 
 	fmt.Println(s)
 	fmt.Println(data)
+}
+
+func mains2(){
+	var array [10]int
+
+	var slice = array[5:6]
+
+	fmt.Println("lenth of slice: ", len(slice))
+	fmt.Println("capacity of slice: ", cap(slice))
+	fmt.Println(&slice[0] == &array[5])
+
+}
+
+func AddElement(slice []int, e int) []int {
+	return append(slice, e)
+}
+
+func mains3() {
+	var slice []int
+	slice = append(slice, 1, 2, 3,4,5,6,7)
+
+	newSlice := AddElement(slice, 7)
+	fmt.Println(&slice[0] == &newSlice[0])
+}
+
+func main() {
+	orderLen := 5
+	order := make([]uint16, 3 * orderLen, 4* orderLen)
+	fmt.Printf("order = %v", order)
+	order[0] = 0
+	order[1] = 1
+	order[2] = 2
+	order[3] = 3
+	order[4] = 4
+	order[5] = 5
+	order[6] = 6
+	order[7] = 7
+	order[8] = 8
+	order[9] = 9
+	order[10] = 10
+	order[11] = 11
+	order[12] = 12
+	order[13] = 13
+	order[14] = 14
+
+	pollorder := order[:orderLen:orderLen]
+	lockorder := order[orderLen:]
+	//lockorder := order[orderLen:][:orderLen:orderLen]
+
+	fmt.Println("len(pollorder) = ", len(pollorder))
+	fmt.Println("cap(pollorder) = ", cap(pollorder))
+	fmt.Println("len(lockorder) = ", len(lockorder))
+	fmt.Println("cap(lockorder) = ", cap(lockorder))
+	fmt.Printf("&pollorder = %v", pollorder)
+	fmt.Printf("&lockorder = %v", lockorder)
 }

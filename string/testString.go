@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func mains1() {
 	slice := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 	d1 := slice[6:9]
 	// 自动扩容到4 原来的两倍  从2开始，4，8，16，32
@@ -34,3 +34,21 @@ func main1() {
 	str = string(s)
 	fmt.Println(str)
 }
+
+func main() {
+	//var b [5]byte = [5]byte{'a','b','c','d','e'}
+	//fmt.Println(GetStringBySlice(b))
+
+	s := "abc"
+	fmt.Println(GetSliceByString(s))
+
+}
+/*func GetStringBySlice(s [5]byte) string {
+	return string(s)
+}*/
+
+func GetSliceByString(str string) []byte {
+	return []byte(str)
+}
+
+
